@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karta Polaka Reports Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 Karta Polaka Reports Viewer</h1>
+            <p>Analysis of Karta Polaka interview reports from Telegram channels</p>
+            <div class="stats">
+                <div class="stat-item">
+                    📁 Files: <span id="filesCount">0</span>
+                </div>
+                <div class="stat-item">
+                    📊 Reports: <span id="reportsCount">0</span>
+                </div>
+                <div class="stat-item">
+                    🏛️ Consulates: <span id="consulatesCount">0</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="filters" style="display: none;" id="filtersSection">
+            <h3>Filters</h3>
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label>Search</label>
+                    <input type="text" id="searchInput" placeholder="Search in reports...">
+                </div>
+                <div class="filter-group">
+                    <label>Consulate</label>
+                    <select id="consulateFilter">
+                        <option value="">All Consulates</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Show Reports</label>
+                    <select id="questionsFilter">
+                        <option value="with_questions">With Questions Only</option>
+                        <option value="all">All Reports</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Date From</label>
+                    <input type="date" id="dateFromFilter">
+                </div>
+                <div class="filter-group">
+                    <label>Date To</label>
+                    <input type="date" id="dateToFilter">
+                </div>
+                <div class="filter-group">
+                    <label>&nbsp;</label>
+                    <button class="btn" onclick="applyFilters()">Apply Filters</button>
+                    <button class="btn btn-secondary" onclick="clearData()">Clear All</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="loadingSection" class="loading" style="display: none;">
+            <p>Loading reports...</p>
+        </div>
+
+        <div id="reportsSection" class="reports-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
